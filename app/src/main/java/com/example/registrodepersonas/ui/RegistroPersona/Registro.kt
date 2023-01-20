@@ -102,13 +102,22 @@ fun FechaNacimiento() {
         contentColor = Color.Blue,
         elevation = 8.dp
     ) {
-        Row(){
-            Image(
-                painter = painterResource(id = R.drawable.baseline_calendar_month_24),
-                contentDescription = "Agregar")
             OutlinedTextField(
                 value = text, onValueChange = {text = it},
                 modifier = Modifier.fillMaxWidth(),
+                enabled = false,
+                trailingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .clickable {
+
+                            }
+                            .size(30.dp, 30.dp),
+                        tint = MaterialTheme.colors.onSurface
+                    )
+                },
                 label = {
                     Text("Fecha de nacimiento",
                         fontStyle = FontStyle.Italic,
@@ -127,7 +136,7 @@ fun FechaNacimiento() {
                     unfocusedIndicatorColor = Color.Transparent
                 )
             )
-        }
+
 
     }
 }
